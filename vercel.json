@@ -1,7 +1,7 @@
 {
   "functions": {
     "main.go": {
-      "runtime": "go1.21"
+      "runtime": "go1.20"
     }
   }
 }
