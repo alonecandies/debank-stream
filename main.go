@@ -146,7 +146,7 @@ func getDataAndPost() {
 		fmt.Println("Error retrieving news")
 	}
 }
-g
+
 func main() {
 	c := cron.New()
 
