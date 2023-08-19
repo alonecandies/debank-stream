@@ -9,6 +9,8 @@ import (
 	"net/http"
 	"strings"
 	"time"
+
+	"gopkg.in/robfig/cron.v2"
 )
 
 const (
@@ -111,7 +113,7 @@ func debankPost(
 	fmt.Println(string(body))
 }
 
-func main() {
+func getDataAndPost() {
 	// Construct the request URL
 	requestURL := "https://cryptopanic.com/api/v1/posts/" +
 		"?auth_token=" + apiKey +
@@ -143,4 +145,16 @@ func main() {
 	} else {
 		fmt.Println("Error retrieving news")
 	}
+}
+g
+func main() {
+	c := cron.New()
+
+	cronExpression := "1 */4 * * *"
+
+	c.AddFunc(cronExpression, getDataAndPost)
+
+	c.Start()
+
+	select {}
 }
